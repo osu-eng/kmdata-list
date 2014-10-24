@@ -10,11 +10,11 @@
         }
     ],
     "require": {
-        "kmdata/kmphp": "1.x-1.x"
+        "kmdata/kmphp": "dev-1.x-1.x"
     },
     "repositories": [
         {
-            "type": "git",
+            "type": "vcs",
             "url":  "https://code.osu.edu/kmdata/kmphp.git"
         }
     ]
