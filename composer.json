@@ -1,0 +1,21 @@
+{
+    "name": "ews/kmdata-list",
+    "description": "Script for querying kmdata database",
+    "license": "GPLv3",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Clement Lu",
+            "email": "lu.705@osu.edu"
+        }
+    ],
+    "require": {
+        "kmdata/kmphp": "1.x-1.x"
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url":  "https://code.osu.edu/kmdata/kmphp.git"
+        }
+    ]
+}
