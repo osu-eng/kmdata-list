@@ -57,14 +57,14 @@ foreach($unique as $dep){
         echo "* Found {$num_people} people in {$dep_num} - {$dep_list[0]->dept_name}\n";
     }
 
-    $dep_title = array($dep_list[0]->dept_name);
-    fputcsv($results, $dep_title);
-    foreach($dep as $emp){
+    $dep_title = array($dep_list[0]->dept_name); //Grab department title
+    fputcsv($results, $dep_title); //Insert department title into csv
+    foreach($dep as $emp){ //Insert employee data for each department
         $personinfo = Factory::search('person', array('id' => "{$emp->id}"), array('emails', 'appointments', 'phone_numbers'));
         $emp_rec = array($emp->id, $emp->display_name, $personinfo[0]->emails[0]->email, $personinfo[0]->appointments[0]->title, $personinfo[0]->phone_numbers[0]->formatted, $personinfo[0]->appointments[0]->sal_admin_plan);
         fputcsv($results, $emp_rec);
 
-        if(strcmp($personinfo[0]->appointments[0]->sal_admin_plan, "FAC")==0){
+        if(strcmp($personinfo[0]->appointments[0]->sal_admin_plan, "FAC")==0){ //Count number of faculty and/or staff
             $num_fac++;
         } else {
             $num_staff++;
@@ -73,11 +73,12 @@ foreach($unique as $dep){
 
     $total += $num_people;
     $dep_num = key($unique);
-    next($unique);
+    next($unique); //Next department
 }
 
-$endtime = microtime(true);
-$timediff = round($endtime - $starttime, 2);
+$endtime = microtime(true); //End time
+$timediff = round($endtime - $starttime, 2); //Total time elapsed
+
 echo "\n* Staff: {$num_staff}\n";
 echo "* Faculty: {$num_fac}\n";
 echo "* Total: {$total}\n";
