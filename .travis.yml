@@ -1,0 +1,9 @@
+language: php
+php:
+- 5.3
+deploy:
+  provider: heroku
+  api_key:
+    secure: u/trnFO6n3EnMnJ83ApZEYmYQeBl3keb1zJo4m5OOSFqYQMyy/60UpaH3YcDaO8lmJHvrpL1oxjjXzrcflPHiU8c1oreY521RbXgEvdnLD3tiVqzEWEnWCCyAdU6zi2a94wO2ABfo9QlxP9WtGulDcnwism/z0/gLPA9mcCcH+Y=
+  #run:
+  #  - "composer install"
